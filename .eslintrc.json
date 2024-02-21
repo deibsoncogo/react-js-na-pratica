@@ -1,7 +1,9 @@
 {
   "rules": {
     "react/jsx-no-bind": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-one-expression-per-line": "off",
+    "jsx-a11y/label-has-associated-control": "off",
     "indent": "off",
     "camelcase": "off",
     "no-console": "off",

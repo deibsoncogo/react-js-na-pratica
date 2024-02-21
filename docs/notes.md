@@ -28,3 +28,13 @@ dependência utilizada para criar uma requisição a uma api
 ```bash
 npm i @tanstack/react-query
 ```
+
+dependência utilizada para manipular componentes pré criado
+```bash
+npm i @radix-ui/react-dialog
+```
+
+dependência utilizada para lidar com formulário
+```bash
+npm i react-hook-form zod @hookform/resolvers
+```
