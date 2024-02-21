@@ -68,13 +68,13 @@ export function App() {
             Tags
           </h1>
 
-          <Button variant="primary">
+          <Button type="button" disabled variant="primary">
             <Plus className="size-3" /> {" "} Create new
           </Button>
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
             <Input variant="filter">
               <Search className="size-3" />
 
@@ -85,12 +85,12 @@ export function App() {
               />
             </Input>
 
-            <Button onClick={handleFilter}>
+            <Button type="button" onClick={handleFilter}>
               <Filter className="size-3" /> Filter
             </Button>
           </div>
 
-          <Button>
+          <Button type="button" disabled>
             <FileDown className="size-3" /> Export
           </Button>
         </div>
@@ -122,7 +122,7 @@ export function App() {
                 </TableCell>
 
                 <TableCell className="text-right">
-                  <Button size="icon">
+                  <Button type="button" disabled size="icon">
                     <MoreHorizontal className="size-4" />
                   </Button>
                 </TableCell>

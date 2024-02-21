@@ -5,15 +5,14 @@ import { ComponentProps } from "react"
 import { tv, type VariantProps } from "tailwind-variants"
 
 const button = tv({
-  base: "inline-flex items-center gap-1.5 text-xs font-medium disabled:opacity-50",
+  base: "inline-flex items-center gap-1.5 text-xs font-medium disabled:opacity-75",
 
   variants: {
     variant: {
-      default:
-        "rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1.5 text-zinc-300 hover:border-zinc-700",
-      primary:
-        "rounded-full bg-teal-400 px-2 py-1 text-teal-950 hover:bg-teal-500",
+      default: "rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1.5 text-zinc-300 hover:border-zinc-700",
+      primary: "rounded-full bg-teal-400 px-2 py-1 text-teal-950 hover:bg-teal-500",
     },
+
     size: {
       default: "",
       icon: "p-1.5",
