@@ -53,7 +53,7 @@ export function Pagination(
   return (
     <div className="flex items-center justify-between text-sm text-zinc-500">
       <span>
-        Showing {perPage} of {items} items
+        Showing {Number(perPage) > items ? items : perPage} of {items} items
       </span>
 
       <div className="flex items-center gap-8">

@@ -59,6 +59,11 @@ export function App() {
 
   function handleUpdatePerPage(item: string) {
     setPerPage(item)
+
+    setSearchParams((params) => {
+      params.set("page", "1")
+      return params
+    })
   }
 
   if (isLoading) return null
