@@ -32,12 +32,13 @@ export function App() {
   const urlFilter = searchParams.get("filter") ?? ""
 
   const [filter, setFilter] = useState(urlFilter)
+  const [perPage, setPerPage] = useState("10")
 
   const { data: tagsResponse, isLoading } = useQuery<TagResponse>({
-    queryKey: ["get-tags", urlFilter, page],
+    queryKey: ["get-tags", perPage, urlFilter, page],
     placeholderData: keepPreviousData,
     queryFn: async () => {
-      const response = await fetch(`http://localhost:3333/tags?_page=${page}&_per_page=10&title=${urlFilter}`)
+      const response = await fetch(`http://localhost:3333/tags?_page=${page}&_per_page=${perPage}&title=${urlFilter}`)
       const data = await response.json()
 
       return data
@@ -51,6 +52,10 @@ export function App() {
 
       return params
     })
+  }
+
+  function handleUpdatePerPage(item: string) {
+    setPerPage(item)
   }
 
   if (isLoading) return null
@@ -132,7 +137,13 @@ export function App() {
         </Table>
 
         {tagsResponse && (
-          <Pagination pages={tagsResponse.pages} items={tagsResponse.items} page={page} />
+          <Pagination
+            pages={tagsResponse.pages}
+            items={tagsResponse.items}
+            page={page}
+            perPage={perPage}
+            updatePerPage={handleUpdatePerPage}
+          />
         )}
       </main>
     </div>

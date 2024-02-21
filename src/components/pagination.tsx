@@ -9,9 +9,13 @@ interface PaginationProps {
   pages: number
   items: number
   page: number
+  perPage: string
+  updatePerPage: (item: string) => void
 }
 
-export function Pagination({ items, page, pages }: PaginationProps) {
+export function Pagination(
+  { items, page, pages, perPage, updatePerPage }: PaginationProps,
+) {
   const [, setSearchParams] = useSearchParams()
 
   function firstPage() {
@@ -49,19 +53,21 @@ export function Pagination({ items, page, pages }: PaginationProps) {
   return (
     <div className="flex items-center justify-between text-sm text-zinc-500">
       <span>
-        Showing 10 of {items} items
+        Showing {perPage} of {items} items
       </span>
 
       <div className="flex items-center gap-8">
         <div className="flex items-center gap-2">
           <span>Rows per page</span>
 
-          <Select defaultValue="10">
+          <Select onValueChange={(event) => updatePerPage(event)} defaultValue={perPage}>
             <SelectTrigger aria-label="Page" />
 
             <SelectContent>
               <SelectItem value="10">10</SelectItem>
               <SelectItem value="20">20</SelectItem>
+              <SelectItem value="30">30</SelectItem>
+              <SelectItem value="40">40</SelectItem>
               <SelectItem value="50">50</SelectItem>
             </SelectContent>
           </Select>
